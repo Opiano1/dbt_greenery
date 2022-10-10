@@ -1,15 +1,53 @@
-Welcome to your new dbt project!
+### Week 1 Assignemts
 
-### Using the starter project
+##### Q1  - How many users do we have?
 
-Try running the following commands:
-- dbt run
-- dbt test
+Answer : 130 users
 
+```
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+select count(user_id) 
+
+from DEV_DB.DBT_OPEYEMI.STG_POSTGRES__USERS
+
+```
+
+##### Q2 - On average, how many orders do we receive per hour?
+
+Answer: 15.04
+
+```
+
+with average_order as (
+    
+SELECT hour(created_at) as order_hour, count(*) as order_count
+FROM DEV_DB.DBT_OPEYEMI.STG_POSTGRES__ORDERS
+group by order_hour
+
+)
+
+select avg(order_count) as avg_order_count
+from average_order
+
+```
+
+##### Q3 - On average, how long does an order take from being placed to being delivered?
+
+Answer: 
+
+```
+
+with avg_distance as (    
+SELECT coalesce(datediff(day, created_at, delivered_at),0) as diff
+FROM DEV_DB.DBT_OPEYEMI.STG_POSTGRES__ORDERS)
+
+select avg(diff) 
+from avg_distance
+
+```
+
+##### Q4 - How many users have only made one purchase? Two purchases? Three+ purchases? 
+Answer: 
+
+##### Q5  - On average, how many unique sessions do we have per hour?
+Answer:
