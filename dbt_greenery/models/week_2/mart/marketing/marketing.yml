@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: user_order_facts
+    description: "This gives facts about orders with the grain as users"
+    columns:
+      - name: user_id
+        description: "The unique id for each user"
+        tests:
+          - not_null
+
+      - name: first_name
+        description: "The first name for each user"
+
+      - name: last_name
+        description: "The last name for each user"
+
+      - name: order_count
+        description: "How many orders each user has made"
+
+      - name: email
+        description: "The email address of each user"
+
+      - name: phone_number
+        description: "The phone number of each user"
+
+      - name: user_registration
+        description: "The date each user registered"
+
+      - name: lifetime_spend
+        description: "How much each user has spent in Greenery"
+
+      - name: lifetime_units
+        description: "How many units each user has bought in Greenery"
+
+      - name: first_order
+        description: "When the user placed the first order"
+
+      - name: latest_order
+        description: "when the user placed the last order"

@@ -1,0 +1,82 @@
+version: 2
+
+models:
+  - name: int_order_details
+    description: "This view aggregates order details to be used in the marts"
+    columns:
+      - name: order_id
+        description: "The grain of the table and the identifier of each order"
+        tests:
+          - not_null
+
+      - name: user_id
+        description: "the identifier of each user"
+
+      - name: created_at
+        description: "the timestamp when each order was created"
+
+      - name: order_cost
+        description: "the cost of each order"
+
+      - name: shipping_cost
+        description: "the cost of shipping for each order"
+
+      - name: order_total
+        description: "the total amount of the order"
+
+      - name: shipping_service
+        description: "the courier service for each order"
+
+      - name: estimated_delivery_at
+        description: "the timestamp for when the order is expected to be delivered"
+
+      - name: delivered_at
+        description: "the timestamp for when the order is actually delivered"
+
+      - name: order_status
+        description: "the status of the order"
+
+      - name: quantity
+        description: "the quantity of the order"
+
+      - name: discount
+        description: "The discount given on the order"
+
+      - name: promo_status
+        description: "The status of the promo. Expected values are 'active' and 'inactive'"
+
+
+  - name: int_session_events_agg
+    description: ""
+    columns:
+      - name: user_id
+        description: ""
+        tests:
+          - not_null
+
+      - name: session_id
+        description: ""
+
+      - name: add_to_cart
+        description: ""
+
+      - name: checkout
+        description: ""
+
+      - name: package_shipped
+        description: ""
+
+      - name: page_view
+        description: ""
+
+      - name: session_start
+        description: ""
+
+      - name: session_end
+        description: ""
+
+      - name: session_length_in_minutes
+        description: ""
+
+      - name: last_seen_in_days
+        description: ""

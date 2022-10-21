@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: fact_page_views
+    description: "This table shows details of user behaviour by session_id"
+    columns:
+      - name: session_id
+        description: "the identifier for each session"
+        tests:
+          - not_null
+          - unique
+
+      - name: user_id
+        description: "the identifier for each user"
+
+      - name: first_name
+        description: "the first name for each user"
+
+      - name: last_name
+        description: "the last name for each user"
+
+      - name: email
+        description: "the email address for each user"
+
+      - name: page_view
+        description: "Count of how many pages viewed in each session"
+
+      - name: add_to_cart
+        description: "count of how many additions to cart were in each session"
+
+      - name: checkout
+        description: "Count of how many checkouts were in each session"
+
+      - name: package_shipped
+        description: "count of how many packages shipped for each user"
+
+      - name: session_length_in_minutes
+        description: "The length of each session in minutes"
+
+      - name: last_seen_in_days
+        description: "The last time each user was seen in days"
