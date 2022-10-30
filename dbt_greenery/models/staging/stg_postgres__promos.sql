@@ -9,7 +9,7 @@ renamed as (
     select
         promo_id,
         discount,
-        status
+        status as promo_status
 
     from source
 

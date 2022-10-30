@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: user_order_facts
+  - name: fcts_user_orders
     description: "This gives facts about orders with the grain as users"
     columns:
       - name: user_id

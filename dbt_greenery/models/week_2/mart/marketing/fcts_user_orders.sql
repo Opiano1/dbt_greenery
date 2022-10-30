@@ -1,6 +1,6 @@
 with users as (
     select *
- from {{ ref('stg_users') }}
+ from {{ ref('stg_postgres__users') }}
 
 ),
 
@@ -13,7 +13,7 @@ orders as (
         min(created_at) as first_order,
         max(created_at) as latest_order
 
-    from {{ ref('fact_orders') }}
+    from {{ ref('fct_orders') }}
     group by user_id
 
 )

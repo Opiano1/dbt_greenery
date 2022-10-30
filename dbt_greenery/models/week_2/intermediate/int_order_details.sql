@@ -2,15 +2,15 @@
 
 with 
 orders as (
-    select * from {{ref('stg_orders')}}
+    select * from {{ref('stg_postgres__orders')}}
 ),
 
 promo as (
-    select * from {{ref('stg_promos')}}
+    select * from {{ref('stg_postgres__promos')}}
 ),
 
 items as (
-    select * from {{ref('stg_order_items')}}
+    select * from {{ref('stg_postgres__order_items')}}
 )
 
 SELECT
@@ -21,7 +21,7 @@ SELECT
     discount,promo_status
 
     FROM orders
-    left JOIN= promo
+    left JOIN promo
     on orders.promo_id = promo.promo_id
     left JOIN items
     on orders.order_id = items.order_id

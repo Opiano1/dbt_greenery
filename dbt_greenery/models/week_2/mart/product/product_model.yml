@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: fact_page_views
+  - name: fct_page_views
     description: "This table shows details of user behaviour by session_id"
     columns:
       - name: session_id
